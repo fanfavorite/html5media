@@ -308,14 +308,15 @@
         // Create the replacement element div.
         var replacement = document.createElement("span");
         replacement.id = element.id;
+        replacement.style.display = "block";
+        if (tagName == "audio") {
+            replacement.style.height = "26px";
+        }
         replacement.style.cssText = element.style.cssText;
         replacement.className = element.className;
         replacement.title = element.title;
-        replacement.style.display = "block";
         replacement.style.width = getDimension(element, "width", "300px");
-        if (tagName == "audio") {
-            replacement.style.height = "26px";
-        } else {
+        if (tagName != "audio") {
             replacement.style.height = getDimension(element, "height", "200px");
         }
         // Replace the element with the div.
